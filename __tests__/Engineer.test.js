@@ -1,13 +1,15 @@
-class Engineer extends Employee{
-    constructor(name, id, email, github){
-        super(name, id, email); 
-        this.github = github;
-    }
+const Engineer = require("../lib/Engineer");
 
-    getGithub(){
-        return this.github;
-    }
-    getRole(){
-        return "Engineer";
-    }
-}
+it("Can create a new Employee", () =>{
+    const engineerTest = new Engineer();
+    expect(typeof(engineerTest) === "object");
+});
+it("Can return the Engineer's Github", () =>{
+    const github = "Dylan-Stroud";
+    const engineerTest = new Engineer("", 1,"",github);
+    expect(engineerTest.getGithub() === github);
+});
+it("Can return the object's role", () =>{
+    const engineerTest = new Engineer();
+    expect(engineerTest.getRole() === "Engineer");
+});
